@@ -19,11 +19,23 @@
             <form action="{{route('auth.save')}}" method="post">
                 @csrf
                 <label class="form-label" for="name">Nome </label>
-                <input class="form-control" type="text" name="name" id="name">
-                <label class="form-label" for="user">Usuario </label>
-                <input class="form-control" type="text" name="user" id="user">
+                <input class="form-control" type="text" name="name" id="name" value="{{ old('name')}}">
+                <span class="text-danger">@error('name')
+                    {{ $message }}
+                @enderror</span>
+
+                <label class="form-label" for="email">Email </label>
+                <input class="form-control" type="email" name="email" id="email" value="{{ old('email')}}">
+                <span class="text-danger">@error('email')
+                    {{ $message }}
+                @enderror</span>
+
                 <label class="form-label" for="password">Senha </label>
                 <input class="form-control" type="password" name="password" id="password">
+                <span class="text-danger">@error('password')
+                    {{ $message }}
+                @enderror</span>
+
                 <a href="{{ route('auth.login')}}" class="d-inline-block  p-5">Já tenho uma conta.</a>
                 <button type="submit" class="btn btn-primary  d-inline-block  btn-lg">Cadastrar</button>
                
