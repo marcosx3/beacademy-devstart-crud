@@ -16,11 +16,25 @@
 
         <div class="container-fluid py-5 h-100">
            <div class="container formulario ">
-            <form action="" method="post">
-                <label class="form-label" for="user">Usuario </label>
-                <input class="form-control" type="text" name="user" id="user">
+            <form action="{{route ('auth.check')}}" method="post">
+                @csrf
+                    @if (Session::get('fail'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ Session::get('fail')}}
+                        </div>
+                    @endif
+                <label class="form-label" for="email">Email </label>
+                <input class="form-control" type="text" name="email" id="email" value="{{ old('email')}}">
+                <span class="text-danger alert-dismissible fade show" role="alert" >@error('email')
+                    {{ $message }}
+                @enderror</span>
+
                 <label class="form-label" for="password">Senha </label>
-                <input class="form-control" type="password" name="password" id="password">
+                <input class="form-control" type="password" name="password" id="password" value="{{ old('password')}}">
+                <span class="text-danger alert-dismissible fade show" role="alert">@error('password')
+                    {{ $message }}
+                @enderror</span>
+                
                 <a href="{{ route('auth.register')}}" class="d-inline-block  p-5">Não tenho uma conta.</a>
                 <button type="submit" class="btn btn-primary  d-inline-block  btn-lg">Entrar</button>
             </form>

@@ -17,6 +17,16 @@
         <div class="container-fluid py-5 h-100">
            <div class="container formulario ">
             <form action="{{route('auth.save')}}" method="post">
+                @if (Session::get('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+                @if (Session::get('fail'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{Session::get('fail')}}
+                    </div>
+                @endif
                 @csrf
                 <label class="form-label" for="name">Nome </label>
                 <input class="form-control" type="text" name="name" id="name" value="{{ old('name')}}">
