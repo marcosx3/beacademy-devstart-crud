@@ -19,21 +19,27 @@
             <form action="{{route ('auth.check')}}" method="post">
                 @csrf
                     @if (Session::get('fail'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             {{ Session::get('fail')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
                 <label class="form-label" for="email">Email </label>
                 <input class="form-control" type="text" name="email" id="email" value="{{ old('email')}}">
-                <span class="text-danger alert-dismissible fade show" role="alert" >@error('email')
-                    {{ $message }}
-                @enderror</span>
+                
+                    @error('email')
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ $message }} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @enderror
 
                 <label class="form-label" for="password">Senha </label>
                 <input class="form-control" type="password" name="password" id="password" value="{{ old('password')}}">
-                <span class="text-danger alert-dismissible fade show" role="alert">@error('password')
-                    {{ $message }}
-                @enderror</span>
+                    @error('password')
+                    <div class="text-danger alert-dismissible fade show" role="alert">
+                    {{ $message }} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @enderror
                 
                 <a href="{{ route('auth.register')}}" class="d-inline-block  p-5">Não tenho uma conta.</a>
                 <button type="submit" class="btn btn-primary  d-inline-block  btn-lg">Entrar</button>
