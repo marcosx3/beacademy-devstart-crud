@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
     <title>@yield('title')</title>
+    
 </head>
 <body>
     <header class="container-fluid">
@@ -19,13 +21,13 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link"  href="#">Cadastro</a>
+                    <a class="nav-link"  href="/">Cadastro</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Listar</a>
+                    <a class="nav-link" href="/lista">Listar</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"  href="#">Atualizar</a>
+                    <a class="nav-link"  href="/atualiza">Atualizar</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"  href="#">Remover</a>
@@ -38,5 +40,7 @@
     </header>
 
     @yield('content')
+
+    <script src="{{asset('bootstrap-5.0.2/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

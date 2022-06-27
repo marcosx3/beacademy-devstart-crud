@@ -9,7 +9,7 @@ use Spatie\FlareClient\View;
 
 class MainController extends Controller
 {
-  function login(){
+  function login() {
         return View('auth.login');
   }
 
