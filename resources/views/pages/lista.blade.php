@@ -42,7 +42,7 @@
                     <td><?= $p->storage_req ?></td>
                     <td><?= $p->video_card ?></td>
                     <td >
-                        <button  class="btn btn-danger d-inline-block"><a href="">Excluir</a></button>
+                        <button  class="btn btn-info d-inline-block"><a href="{{route('atualiza',$p->id)}}">Atualizar</a></button>
                     </td>
                     <td>
                         <button  class="btn btn-danger d-inline-block"><a href="">Excluir</a></button>

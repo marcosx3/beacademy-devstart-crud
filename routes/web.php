@@ -25,11 +25,13 @@ Route::get('auth/register',[MainController::class,'register'])->name('auth.regis
 Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
 Route::post('/auth/check',[MainController::class,'check'])->name('auth.check');
 
+// CADASTRA PRODUTO
+Route::post('cadastro',[ProdutoController::class,'cadastra']);
 // LISTAR PRODUTO
 Route::get('/lista',[ProdutoController::class,'lista']);
 
-    // Atualizar
-// Route::get('atualiza',[ProdutoController::class,'atualiza']);
-// Route::post('atualiza',[ProdutoController::class,'atualiza']);
+    // rota para editar
+ Route::put('/update/{id}',[ProdutoController::class,'update'])->name('update');
 
-Route::post('cadastro',[ProdutoController::class,'cadastra']);
+ Route::get('/atualiza/{id}',[ProdutoController::class,'edita'])->name('atualiza');
+

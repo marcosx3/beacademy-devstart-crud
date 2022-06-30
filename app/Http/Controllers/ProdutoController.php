@@ -32,15 +32,16 @@ class ProdutoController extends Controller
             return view('pages.lista')->with('produtos',$produtos);
         }
 
-        function atualiza($id){
-            DB::select('select * from produtos where id = (?)',
-            $id);
-            var_dump($id);
-            // preciso recupera o do botao e mostrar na view de listage,
+        public function edita($id) {
+            $p = Produto::find($id);
+            return view('pages.atualiza', compact('p'));
         }
-        // function remove($id){
-        //     $produto = Produto::find($id);
-        //     $produto->delete();
-        //     return back()->with('success','Produto Deletado com sucesso.');
-        // }
+        function update(Request $request,$id)
+        {       
+                $p = Produto::find($id);
+                $data = $request->all();
+                $p->update($data);
+                return redirect('/lista');
+        }
+        
 }
