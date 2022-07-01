@@ -11,7 +11,7 @@
     </div>
     <div class="container form-cadastro-produtos">
         <form action="{{route('update',$p->id)}}" method="post">
-            @method('PUT')
+           
             @csrf
             <div class="row">
                 <div class="col">

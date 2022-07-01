@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Produtos;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProdutoController extends Controller
 {   
+
+    public function __construct(Produto $p)
+    {
+        $this->model = $p;
+    }
+
+        //Cadastrar Produto
         function cadastra(Request $request) {
             $nome = $request->input('name');
             $genero = $request->input('gender');
@@ -26,7 +34,7 @@ class ProdutoController extends Controller
         }
 
 
-
+        // Listar Produto
         function lista() {
             $produtos = DB::select('select * from produtos;');
             return view('pages.lista')->with('produtos',$produtos);
@@ -36,12 +44,29 @@ class ProdutoController extends Controller
             $p = Produto::find($id);
             return view('pages.atualiza', compact('p'));
         }
+
+
+
+        //Update Produto
         function update(Request $request,$id)
         {       
-                $p = Produto::find($id);
-                $data = $request->all();
-                $p->update($data);
-                return redirect('/lista');
+            $p = $request->except('_token');
+            DB::table('produtos')->where('id',$id)->update([
+                'name'=> $p['name'],
+                'gender'=> $p['gender'],
+                'developer'=> $p['developer'],
+                'distributor'=> $p['distributor'],
+                'launch'=> $p['launch'],
+                'so'=> $p['so'],
+                'processor'=> $p['processor'],
+                'memory_ram'=> $p['memory_ram'],
+                'storage_req'=> $p['storage_req'],
+                'video_card'=> $p['video_card']
+            ]);
+            // retornar uma view
+            $produtos = DB::select('select * from produtos;');
+            return view('pages.lista')->with('produtos',$produtos);
         }
         
+       
 }
