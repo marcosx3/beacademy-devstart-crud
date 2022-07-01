@@ -31,7 +31,7 @@ Route::post('cadastro',[ProdutoController::class,'cadastra']);
 Route::get('/lista',[ProdutoController::class,'lista']);
 
     // rota para editar
- Route::put('/update/{id}',[ProdutoController::class,'update'])->name('update');
+ Route::post('/update/{id}',[ProdutoController::class,'update'])->name('update');
 
  Route::get('/atualiza/{id}',[ProdutoController::class,'edita'])->name('atualiza');
 

@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-       
         Schema::create('produtos', function (Blueprint $table) {
-        
             $table->id();
-            $table->text('nome');
+            $table->text('name');
             $table->text('gender');
             $table->text('developer');
             $table->text('distributor');

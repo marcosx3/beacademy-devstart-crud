@@ -38,7 +38,7 @@
 
 
                             <label for="launch" class="form-label">Data de Lançamento</label>
-                            <input type="date" name="launch" id="launch" class="form-control">
+                            <input type="text" name="launch" id="launch" class="form-control">
                         </div>
                     </fieldset>
                 </div>
