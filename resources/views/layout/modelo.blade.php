@@ -26,12 +26,12 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/lista">Listar</a>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link"  href="/atualiza">Atualizar</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"  href="#">Remover</a>
-                  </li>
+                  </li> --}}
                 </ul>
                 
               </div>

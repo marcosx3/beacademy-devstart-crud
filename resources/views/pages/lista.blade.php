@@ -1,7 +1,7 @@
 @extends('layout.modelo')
 
 @section('title')
-   Lista de Produtos
+    Lista de Produtos
 @endsection
 
 @section('content')
@@ -41,23 +41,20 @@
                     <td><?= $p->memory_ram ?></td>
                     <td><?= $p->storage_req ?></td>
                     <td><?= $p->video_card ?></td>
-                    <td >
-                        <button  class="btn btn-info d-inline-block"><a style="text-decoration: none;" href="{{route('atualiza',$p->id)}}">Atualizar</a></button>
+                    <td>
+                        <button class="btn btn-info d-inline-block"><a style="text-decoration: none;"
+                                href="{{ route('atualiza', $p->id) }}">Atualizar</a></button>
                     </td>
                     <td>
-                        <button  class="btn btn-danger d-inline-block"><a style="text-decoration: none;" href="">Excluir</a></button>
+                        <form action="{{route('delete',$p->id)}}" method="get">
+                          
+                            <button class="btn btn-danger d-inline-block"><a
+                                    style="text-decoration: none;">Excluir</a></button>
+                        </form>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
         </table>
     </div>
-
-
-
-
-
-
-
-
 @endsection
