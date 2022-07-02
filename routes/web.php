@@ -30,8 +30,11 @@ Route::post('cadastro',[ProdutoController::class,'cadastra']);
 // LISTAR PRODUTO
 Route::get('/lista',[ProdutoController::class,'lista']);
 
-    // rota para editar
+ // ATUALIZA PRODUTO
  Route::post('/update/{id}',[ProdutoController::class,'update'])->name('update');
-
  Route::get('/atualiza/{id}',[ProdutoController::class,'edita'])->name('atualiza');
+
+  // DELETA PRODUTO
+  Route::post('/remove/{id}',[ProdutoController::class,'remove'])->name('remove');
+  Route::get('/delete/{id}',[ProdutoController::class,'delete'])->name('delete');
 

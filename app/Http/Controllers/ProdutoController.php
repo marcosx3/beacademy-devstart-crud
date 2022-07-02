@@ -63,10 +63,21 @@ class ProdutoController extends Controller
                 'storage_req'=> $p['storage_req'],
                 'video_card'=> $p['video_card']
             ]);
+
             // retornar uma view
             $produtos = DB::select('select * from produtos;');
             return view('pages.lista')->with('produtos',$produtos);
         }
+
         
+        public function delete(Request $request, $id) {
+            $p = $request->except('_token');
+            DB::table('produtos')
+            ->where('id',$id)
+            ->delete();
+            $produtos = DB::select('select * from produtos;');
+            return view('pages.lista')->with('produtos',$produtos);
+        }
+      
        
 }
