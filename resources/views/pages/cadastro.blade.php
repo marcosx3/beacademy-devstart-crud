@@ -1,4 +1,4 @@
-@extends('layout.modelo')
+@extends('template.modelo')
 
 @section('title')
     Cadastro de Produtos
@@ -13,10 +13,10 @@
         <form action="/cadastro" method="post">
             @csrf
             @if (Session::get('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{Session::get('success')}}
-                    </div>
-                @endif
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col">
                     <fieldset>
@@ -68,11 +68,10 @@
                 </div>
             </div>
             <div class="btn-produtos ">
-                <button type="submit" class="btn btn-primary mt-3 btn-lg" >Limpar</button>
+
                 <button type="submit" class="btn btn-primary mt-3 btn-lg">Cadastro</button>
             </div>
         </form>
-       
+
     </div>
-   
 @endsection

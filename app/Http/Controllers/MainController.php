@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,11 +26,11 @@ class MainController extends Controller
         'password'=> 'required',
       ]);
 
-      $admin = new Admin;
-      $admin->name = $request->name;
-      $admin->email = $request->email;
-      $admin->password = Hash::make($request->password);
-      $save = $admin->save();
+      $users = new User();
+      $users->name = $request->name;
+      $users->email = $request->email;
+      $users->password = Hash::make($request->password);
+      $save = $users->save();
 
       if($save){
         return back()->with('success','Usuario cadastrado.');
@@ -44,13 +45,13 @@ class MainController extends Controller
         'password'=> 'required'
       ]);
 
-      $userInfo = Admin::where('email','=',$request->email)->first();
+      $userInfo = User::where('email','=',$request->email)->first();
       if(!$userInfo){
         return back()->with('fail',"usuario nao encontrado");
       } else {
         if(Hash::check($request->password, $userInfo->password)){
             $request->session()->put('LoggedUser', $userInfo->id);
-            return redirect('/');
+            return redirect('/lista');
         } else {
           return back()->with('fail',"Senha Incorreta");
         }

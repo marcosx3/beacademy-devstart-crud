@@ -15,26 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/cadastro');
-});
 
 //  LOGIN
-Route::get('/auth/login',[MainController::class,'login'])->name('auth.login');
-Route::get('auth/register',[MainController::class,'register'])->name('auth.register');
-Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
-Route::post('/auth/check',[MainController::class,'check'])->name('auth.check');
+Route::get('/', [MainController::class, 'login'])->name('auth.login');
+Route::get('/auth/register', [MainController::class, 'register'])->name('auth.register');
+Route::post('/auth/save', [MainController::class, 'save'])->name('auth.save');
+Route::post('/auth/check', [MainController::class, 'check'])->name('auth.check');
 
 // CADASTRA PRODUTO
-Route::post('cadastro',[ProdutoController::class,'cadastra']);
+Route::post('/cadastro', [ProdutoController::class, 'cadastra']);
+Route::get('/cadastro', [ProdutoController::class, 'cadastroView']);
 // LISTAR PRODUTO
-Route::get('/lista',[ProdutoController::class,'lista']);
+Route::get('/lista', [ProdutoController::class, 'lista']);
 
- // ATUALIZA PRODUTO
- Route::post('/update/{id}',[ProdutoController::class,'update'])->name('update');
- Route::get('/atualiza/{id}',[ProdutoController::class,'edita'])->name('atualiza');
+// ATUALIZA PRODUTO
+Route::post('/update/{id}', [ProdutoController::class, 'update'])->name('update');
+Route::get('/atualiza/{id}', [ProdutoController::class, 'edita'])->name('atualiza');
 
-  // DELETA PRODUTO
-  Route::post('/remove/{id}',[ProdutoController::class,'remove'])->name('remove');
-  Route::get('/delete/{id}',[ProdutoController::class,'delete'])->name('delete');
-
+// DELETA PRODUTO
+Route::post('/remove/{id}', [ProdutoController::class, 'remove'])->name('remove');
+Route::get('/delete/{id}', [ProdutoController::class, 'delete'])->name('delete');
