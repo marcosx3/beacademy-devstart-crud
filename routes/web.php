@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,15 +23,15 @@ Route::post('/auth/save', [MainController::class, 'save'])->name('auth.save');
 Route::post('/auth/check', [MainController::class, 'check'])->name('auth.check');
 
 // CADASTRA PRODUTO
-Route::post('/cadastro', [ProdutoController::class, 'cadastra']);
-Route::get('/cadastro', [ProdutoController::class, 'cadastroView']);
+Route::post('/produtos/cadastro', [ProductController::class, 'register']);
+Route::get('/produtos/cadastro', [ProductController::class, 'registerView']);
 // LISTAR PRODUTO
-Route::get('/lista', [ProdutoController::class, 'lista']);
+Route::get('/produtos/lista', [ProductController::class, 'show'])->name('product.show');
 
 // ATUALIZA PRODUTO
-Route::post('/update/{id}', [ProdutoController::class, 'update'])->name('update');
-Route::get('/atualiza/{id}', [ProdutoController::class, 'edita'])->name('atualiza');
+Route::post('/produtos/update/{id}', [ProductController::class, 'update'])->name('update');
+Route::get('/produtos/atualiza/{id}', [ProductController::class, 'edit'])->name('product.editar');
 
 // DELETA PRODUTO
-Route::post('/remove/{id}', [ProdutoController::class, 'remove'])->name('remove');
-Route::get('/delete/{id}', [ProdutoController::class, 'delete'])->name('delete');
+Route::post('/produtos/remove/{id}', [ProductController::class, 'remove'])->name('remove');
+Route::get('/produtos/delete/{id}', [ProductController::class, 'destroy'])->name('product.deletar');

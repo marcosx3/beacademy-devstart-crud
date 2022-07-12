@@ -10,7 +10,7 @@
         <h1>Cadastro de Produto</h1>
     </div>
     <div class="container form-cadastro-produtos">
-        <form action="/cadastro" method="post">
+        <form action="/produtos/cadastro" method="post">
             @csrf
             @if (Session::get('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -38,7 +38,7 @@
 
 
                             <label for="launch" class="form-label">Data de Lançamento</label>
-                            <input type="text" name="launch" id="launch" class="form-control">
+                            <input type="date" name="launch" id="launch" class="form-control">
                         </div>
                     </fieldset>
                 </div>
@@ -58,7 +58,7 @@
 
 
                             <label for="storage_req" class="form-label">Armazenamento</label>
-                            <input type="text" name="storage_req" id="storage_req" class="form-control">
+                            <input type="number" name="storage_req" id="storage_req" class="form-control">
 
 
                             <label for="video_card" class="form-label">Placa de Vídeo</label>
