@@ -23,7 +23,7 @@ Route::post('/auth/save', [MainController::class, 'save'])->name('auth.save');
 Route::post('/auth/check', [MainController::class, 'check'])->name('auth.check');
 
 // CADASTRA PRODUTO
-Route::post('/produtos/cadastro', [ProductController::class, 'register']);
+Route::post('/produtos/cadastro', [ProductController::class, 'register'])->name('register');
 Route::get('/produtos/cadastro', [ProductController::class, 'registerView']);
 // LISTAR PRODUTO
 Route::get('/produtos/lista', [ProductController::class, 'show'])->name('product.show');

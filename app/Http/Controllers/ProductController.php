@@ -19,8 +19,12 @@ class ProductController extends Controller
     function register(Request $request)
     {
         $data = $request->all();
-        $this->model->create($data);
-        return back()->with('success', 'Produto Adicionado com Sucesso.');
+        if(!$this->model->create($data))
+        {
+            return back()->with('message', 'Falha na adição do produto, Contate o suporte!'); 
+        }
+        
+        return back()->with('message', 'Produto Adicionado com Sucesso.');
     }
   
     function registerView()
@@ -28,10 +32,12 @@ class ProductController extends Controller
       return view('pages.create');
     }
 
-    function show()
+    function show(Request $request)
     {
-        $products = Product::all();
-        return view('pages.show')->with('products', $products);
+        $products = $this->model->getProducts(
+            $request->search ?? ''
+        );
+        return  view('pages.show', compact('products')); 
     }
 
     public function edit($id)
@@ -69,10 +75,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        DB::table('products')
-        ->where('id',$id)
-        ->delete();
-        $products = DB::select('select * from products;');
-        return view('pages.show')->with('products', $products);
+        if($product->delete()){
+            return back()->with('message', 'Produto excluido com sucesso.'); 
+        }
+        return back()->with('message', 'Falha ao excluir produto.'); 
+        // $products = DB::select('select * from products;');
+        // return view('pages.show')->with('products', $products);
     }
 }

@@ -10,12 +10,13 @@
         <h1>Cadastro de Produto</h1>
     </div>
     <div class="container form-cadastro-produtos">
-        <form action="/produtos/cadastro" method="post">
+        <form action="{{route('register')}}" method="post">
             @csrf
-            @if (Session::get('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ Session::get('success') }}
-                </div>
+            @if (Session::get('message'))
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ Session::get('message') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
             @endif
             <div class="row">
                 <div class="col">
