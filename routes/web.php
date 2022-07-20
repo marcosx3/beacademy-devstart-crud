@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 
 //  LOGIN
-Route::get('/', [MainController::class, 'login'])->name('auth.login');
-Route::get('/auth/register', [MainController::class, 'register'])->name('auth.register');
-Route::post('/auth/save', [MainController::class, 'save'])->name('auth.save');
-Route::post('/auth/check', [MainController::class, 'check'])->name('auth.check');
+Route::get('/', [HomeController::class, 'login'])->name('auth.login');
+Route::get('/auth/register', [HomeController::class, 'register'])->name('auth.register');
+Route::post('/auth/save', [UserController::class, 'save'])->name('auth.save');
+Route::post('/auth/check', [UserController::class, 'check'])->name('auth.check');
 
 // CADASTRA PRODUTO
 Route::post('/produtos/cadastro', [ProductController::class, 'register']);
