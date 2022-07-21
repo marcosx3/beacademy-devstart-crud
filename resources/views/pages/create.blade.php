@@ -1,4 +1,4 @@
-@extends('template.modelo')
+@extends('template.template')
 
 @section('title')
     Cadastro de Produtos
