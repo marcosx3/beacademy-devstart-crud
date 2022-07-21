@@ -1,4 +1,4 @@
-@extends('template.modelo')
+@extends('template.template')
 
 @section('title')
     Atualizar Produto
@@ -31,8 +31,8 @@
                                 value="{{ $p->distributor }} ">
                             <label for="launch" class="form-label">Data de Lançamento</label>
                             <input type="date" name="launch" id="launch" class="form-control"
-                              value="{{ $p->launch}}">  {{-- value="{{ $p->launch }} "> --}}
-                                {{-- <td>{{ date('d/m/Y', strtotime($p->launch)) }}</td> --}}
+                                value="{{ $p->launch }}"> {{-- value="{{ $p->launch }} "> --}}
+                            {{-- <td>{{ date('d/m/Y', strtotime($p->launch)) }}</td> --}}
                         </div>
                     </fieldset>
                 </div>
@@ -46,16 +46,16 @@
                             <label for="processor" class="form-label">Processador</label>
                             <input type="text" name="processor" id="processor" class="form-control"
                                 value="{{ $p->processor }} ">
-                                
-                                <label for="memory_ram" class="form-label">Memoria RAM</label>
-                                <input type="number" name="memory_ram" id="memory_ram" class="form-control"
-                                    value="{{ $p->memory_ram }}">
-                              
+
+                            <label for="memory_ram" class="form-label">Memoria RAM</label>
+                            <input type="number" name="memory_ram" id="memory_ram" class="form-control"
+                                value="{{ $p->memory_ram }}">
+
                             <label for="storage_req" class="form-label">Armazenamento</label>
                             <input type="number" name="storage_req" id="storage_req" class="form-control"
                                 value="{{ $p->storage_req }}">
-                            
-                                <label for="video_card" class="form-label">Placa de Vídeo</label>
+
+                            <label for="video_card" class="form-label">Placa de Vídeo</label>
                             <input type="text" name="video_card" id="video_card" class="form-control"
                                 value=" {{ $p->video_card }} ">
                         </div>

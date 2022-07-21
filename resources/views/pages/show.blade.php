@@ -1,4 +1,4 @@
-@extends('template.modelo')
+@extends('template.template')
 @section('title')
     Lista de Produtos
 @endsection
@@ -37,7 +37,8 @@
                         <td> {{ $p->gender }} </td>
                         <td> {{ $p->name }} </td>
                         <td>{{ $p->developer }} </td>
-                        <td><{{ $p->distributor }} </td>
+                        <td>
+                            <{{ $p->distributor }} </td>
                         <td>{{ date('d/m/Y', strtotime($p->launch)) }}</td>
                         <td>{{ $p->so }} </td>
                         <td>{{ $p->processor }} </td>
