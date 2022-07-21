@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->text('name');
+            $table->text('gender');
+            $table->text('developer');
+            $table->text('distributor');
+            $table->date('launch');
+            $table->text('so');
+            $table->text('processor');
+            $table->integer('memory_ram');
+            $table->integer('storage_req');
+            $table->text('video_card');
             $table->timestamps();
         });
     }
