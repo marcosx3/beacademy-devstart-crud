@@ -12,7 +12,7 @@
         </div>
     @else
         <div class="container listagem-produtos">
-            <table class="table table-bordered">
+            <table class="table table-bordered display" id="table_id" >
                 <thead>
                     <tr>
                         {{-- <th>ID</th> --}}
