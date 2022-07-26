@@ -2,10 +2,11 @@
 * {
     font-family: 'Ubuntu', sans-serif;
 }
-.logo {
-    color: #0B6CFF;
-    font-weight: 700;
+
+img {
+   margin-left: 15px;
 }
+
 .formulario {
    display: flex;
    justify-content: center;
@@ -66,8 +67,4 @@
     display: flex !important;
     justify-content: center;
     gap: 3.4rem;
-}
-    /* LISTAGEM DE PRODUTOS */
-.listagem-produtos  table{
-  
 }

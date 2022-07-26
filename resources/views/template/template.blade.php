@@ -15,12 +15,13 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            {{-- <div class="container-fluid">                                       necessita de correcao --}}
-            <a class="navbar-brand" href="{{ url('/produtos/lista') }}"><img
-                    src="{{ asset('storage/app/public/logo/asterix.jpg') }}" alt="" class="image-responsive"
-                    width="50px" height="50px"></a>
+            <a class="navbar-brand ml-auto" href="{{ url('https://github.com/marcosx3/beacademy-devstart-crud') }}">
+                <img
+                    src="{{  asset('assets/logo.png') }}" alt="Logo Bandeira pirata" class="image-responsive"
+                    width="25px" height="25px"/>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
